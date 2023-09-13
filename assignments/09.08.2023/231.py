@@ -9,6 +9,5 @@ class Solution(object):
         elif n==1:
             return True
         elif n%2==0:
-            n=n/2
-            return self.isPowerOfTwo(n)
+            return self.isPowerOfTwo(n/2)
         return False

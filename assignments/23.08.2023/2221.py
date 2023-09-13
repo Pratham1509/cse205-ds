@@ -8,3 +8,4 @@ class Solution:
             new.append(k)
             
         return self.triangularSum(new)
+        
