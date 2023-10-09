@@ -1,14 +1,13 @@
 class Solution(object):
     def generateParenthesis(self, n):
         result = []
-        self.generateParentheses(result, "", 0, 0, n)
+        def gp(open,close,count,sr):
+            if open==close==0:
+                result.append(sr)
+                return
+            if open>0:
+                gp(open-1,close,count+1,sr+'(')
+            if close>0 and count>0:
+                gp(open,close-1,count-1,sr+')')
+        gp(n,n,0,"")
         return result
-
-    def generateParentheses(self, result, current, open, close, n):
-        if len(current) == 2 * n:
-            result.append(current)
-            return
-        if open < n:
-            self.generateParentheses(result, current + '(', open + 1, close, n)
-        if close < open:
-            self.generateParentheses(result, current + ')', open, close + 1, n)
